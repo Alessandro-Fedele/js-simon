@@ -77,10 +77,10 @@ function stampForm()
         //Confronto l'array con i numeri inseriti dall'utente e l'array con i numeri random
         let numeriRicordati = randomNumbers.filter(x => userNumbers.includes(x));
         let numeriNonRicordati = randomNumbers.filter(x => !userNumbers.includes(x));
-        console.log(numeriRicordati);
+        console.log(numeriRicordati.length);
         console.log(numeriNonRicordati);
         if (numeriRicordati.length > 0) {
-            numContainer.innerHTML = `<h3>Hai ricordato questi numeri: ${numeriRicordati}, ma non hai ricordato questi: ${numeriNonRicordati}</h3>`;
+            numContainer.innerHTML = `<h3>Hai ricordato ${numeriRicordati.length} numeri su 5: ${numeriRicordati}. Ma non hai ricordato questi: ${numeriNonRicordati}</h3>`;
         } else {
             numContainer.innerHTML = `<h3>Non ne hai ricordato neanche uno!!!</h3>`;
         }
