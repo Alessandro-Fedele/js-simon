@@ -18,7 +18,7 @@ btnGenerateRandomNumbs.addEventListener("click", function ()
     printRandomNumb();
     // Parte il Timer
     let counter = setInterval(timer, 1000);
-    let count = 2;
+    let count = 30;
     function timer()
     {
         count = count - 1;
@@ -69,26 +69,20 @@ function stampForm()
         let inputNumber = document.getElementsByClassName("inputs-numbers");
         for (var i = 0; i < inputNumber.length; ++i) {
             if (typeof inputNumber[i].value !== "undefined") {
-                userNumbers.push(inputNumber[i].value);
+                userNumbers.push(parseInt(inputNumber[i].value));
             }
-            console.log(userNumbers);
         }
-
+        console.log(userNumbers);
 
         //Confronto l'array con i numeri inseriti dall'utente e l'array con i numeri random
         let numeriRicordati = randomNumbers.filter(x => userNumbers.includes(x));
+        let numeriNonRicordati = randomNumbers.filter(x => !userNumbers.includes(x));
         console.log(numeriRicordati);
-
-        const numeriNonRicordati = [];
+        console.log(numeriNonRicordati);
+        if (numeriRicordati.length > 0) {
+            numContainer.innerHTML = `<h3>Hai ricordato questi numeri: ${numeriRicordati}, ma non hai ricordato questi: ${numeriNonRicordati}</h3>`;
+        } else {
+            numContainer.innerHTML = `<h3>Non ne hai ricordato neanche uno!!!</h3>`;
+        }
     });
 }
-
-// for (let i = 0; i < randomNumbers.length; i++) {
-//     if (randomNumbers.includes(userNumbers[i])) {
-//         numeriRicordati.push(userNumbers[i]);
-//         counter++;
-//     } else {
-//         numeriNonRicordati.push(userNumbers[i]);
-//     }
-//     numContainer.innerHTML = `I numeri che hai ricordato sono: ${numeriRicordati}, quelli che NON hai ricordato sono: ${numeriNonRicordati}`;
-// }

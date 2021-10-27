@@ -55,8 +55,9 @@ setTimeout(function ()
 
     if (listaNumeriRicordati.length > 0) {
         alert('I numeri che ti sei ricodato sono: ' + listaNumeriRicordati);
-    } else
+    } else {
         alert('Non ne hai ricordato nemmeno uno!!!');
+    }
 
 }, 3000); // metto 3.000ms invece di 30.000ms
 
